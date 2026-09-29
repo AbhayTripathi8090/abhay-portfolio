@@ -22,7 +22,7 @@ export const portfolioData = {
 
   socialLinks: {
     github: "https://github.com/AbhayTripathi8090",
-    linkedin: "YOUR_LINKEDIN_URL",
+    linkedin: "https://www.linkedin.com/in/abhay-tripathi-5bbaa922a/",
     email: "mailto:abhaytripathijuly15@gmail.com",
   },
 
