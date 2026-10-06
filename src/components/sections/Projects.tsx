@@ -102,6 +102,20 @@ export default function Projects() {
                   </a>
                 )}
 
+                {project.liveUrl2 && (
+                  <a
+                    href={project.liveUrl2}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${project.title} live demo`}
+                
+                    className="inline-flex items-center gap-2 rounded-lg bg-violet-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-500"
+                  >
+                    Live Demo Admin
+                    <ExternalLink size={16} />
+                  </a>
+                )}
+
                 {!project.githubUrl && !project.liveUrl && (
                   <span className="text-sm text-[var(--muted)]">
                     Work project
