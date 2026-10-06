@@ -5,6 +5,7 @@ export interface Project {
   technologies: string[];
   githubUrl?: string;
   liveUrl?: string;
+  liveUrl2?: string;
   featured?: boolean;
 }
 
@@ -26,8 +27,25 @@ export const projectsData: Project[] = [
     liveUrl: "https://togethercode.onrender.com",
     featured: true,
   },
+   {
+    title: "IdeaCraft",
+    category: "E-commerce",
+        description:
+          "An e-commerce platform that allows users to browse and purchase products, manage their shopping cart, and complete transactions securely. It includes features for product listings, user authentication, and order management.",
+    technologies: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+    ],
+    githubUrl: "https://github.com/AbhayTripathi8090/ecom",
+    liveUrl: "https://ecom-phi-opal-61.vercel.app/",
+    liveUrl2: "https://ecom-3j9p.vercel.app/",
+    featured: true,
+  },
   {
-    title: "AI Real-time Chat App",
+    title: "HeyChat",
     category: "Real-time Application",
     description:
       "A real-time messaging application with user authentication, online/offline status, messaging, and an AI-powered chat feature.",
@@ -39,6 +57,7 @@ export const projectsData: Project[] = [
       "Socket.IO",
       "JWT",
     ],
+    githubUrl: "https://github.com/AbhayTripathi8090/HeyChat",
     liveUrl: "https://ai-chat-powered-realtimechat.onrender.com",
     featured: true,
   },
@@ -46,7 +65,7 @@ export const projectsData: Project[] = [
     title: "SupplyBase",
     category: "E-commerce",
     description:
-      "An e-commerce platform with an admin application for managing store settings and content, including email notification functionality.",
+      "A full-stack e-commerce platform for browsing products, managing a cart, and placing orders. It includes a dedicated admin dashboard for products, inventory, store content, customer orders, and email notifications.",
     technologies: [
       "Next.js",
       "React.js",
@@ -61,7 +80,7 @@ export const projectsData: Project[] = [
     title: "MyBildr",
     category: "HRMS / SaaS",
     description:
-      "A multi-tenant HRMS platform with company, user, project, and attendance management, along with subscription and administration features.",
+      "A multi-tenant HRMS application that helps companies manage employees, attendance, leave, projects, and team information from one workspace. It also includes role-based access, subscription management, and an admin panel for platform operations.",
     technologies: [
       "React.js",
       "NestJS",
@@ -69,6 +88,20 @@ export const projectsData: Project[] = [
       "TypeORM",
       "Socket.IO",
       "AWS",
+    ],
+    liveUrl: "https://mybildr.com",
+  },
+  {
+    title: "MeYou",
+    category: "Mobile Application",
+    description:
+      "A mobile application designed to help users connect, share updates, and manage their everyday interactions in one place. This placeholder can be replaced with the app's exact purpose, key user flows, and the features you worked on.",
+    technologies: [
+      "React Native",
+      "TypeScript",
+      "Node.js",
+      "REST APIs",
+      "Firebase",
     ],
   },
 ];
