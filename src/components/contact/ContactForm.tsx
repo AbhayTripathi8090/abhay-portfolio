@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { CheckCircle2, LoaderCircle, Send, XCircle } from "lucide-react";
 import { contactSchema, type ContactFormValues } from "@/lib/contact-schema";
+import { trackEvent } from "@/lib/analytics";
 
 type SubmissionStatus = { type: "success" | "error"; message: string } | null;
 
@@ -34,6 +35,11 @@ export default function ContactForm() {
       const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...values, formStartedAt: formStartedAt ?? 0 }) });
       const data = (await response.json()) as { message?: string };
       if (!response.ok) throw new Error(data.message || "Unable to send your message.");
+      trackEvent("contact_form_submit", {
+        event_category: "engagement",
+        event_label: values.subject,
+        form_name: "contact",
+      });
       setFormStartedAt(null);
       reset({ name: "", email: "", subject: "", message: "", website: "", formStartedAt: 0 });
       setStatus({ type: "success", message: "Thanks for reaching out. Your message has been sent." });
