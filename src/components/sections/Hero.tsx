@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 
 import { portfolioData } from "@/data/portfolio";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Hero() {
   return (
@@ -105,6 +106,13 @@ export default function Hero() {
 
             <a
               href="#projects"
+              onClick={() =>
+                trackEvent("project_section_click", {
+                  event_category: "engagement",
+                  event_label: "View Projects",
+                  link_location: "hero",
+                })
+              }
               className="group inline-flex items-center gap-2 rounded-xl bg-[var(--accent)] px-6 py-3.5 text-sm font-semibold text-white transition hover:-translate-y-1 hover:shadow-lg hover:shadow-violet-500/20"
             >
               View Projects
@@ -118,6 +126,15 @@ export default function Hero() {
             <a
               href={portfolioData.resume}
               download
+              onClick={() =>
+                trackEvent("resume_download", {
+                  event_category: "engagement",
+                  event_label: "Download Resume",
+                  file_name: "resume.pdf",
+                  link_url: portfolioData.resume,
+                  link_location: "hero",
+                })
+              }
               className="inline-flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-6 py-3.5 text-sm font-semibold transition hover:-translate-y-1 hover:border-[var(--accent)]"
             >
               Download Resume
@@ -141,6 +158,14 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
+              onClick={() =>
+                trackEvent("github_click", {
+                  event_category: "engagement",
+                  event_label: "GitHub profile",
+                  link_url: portfolioData.socialLinks.github,
+                  link_location: "hero",
+                })
+              }
               className="text-[var(--muted)] transition hover:text-[var(--accent)]"
             >
               <CodeXml size={20} />
@@ -151,6 +176,14 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
+              onClick={() =>
+                trackEvent("linkedin_click", {
+                  event_category: "engagement",
+                  event_label: "LinkedIn profile",
+                  link_url: portfolioData.socialLinks.linkedin,
+                  link_location: "hero",
+                })
+              }
               className="text-[var(--muted)] transition hover:text-[var(--accent)]"
             >
               <BriefcaseBusiness size={20} />
