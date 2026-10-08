@@ -1,9 +1,13 @@
 
+"use client";
+
 import {
   CodeXml,
   BriefcaseBusiness,
   Mail,
 } from "lucide-react";
+import { portfolioData } from "@/data/portfolio";
+import { trackEvent } from "@/lib/analytics";
 
 export default function Footer() {
   return (
@@ -21,28 +25,52 @@ export default function Footer() {
         <div className="flex items-center gap-5">
 
           <a
-            href="https://github.com/AbhayTripathi8090"
+            href={portfolioData.socialLinks.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
+            onClick={() =>
+              trackEvent("github_click", {
+                event_category: "engagement",
+                event_label: "GitHub profile",
+                link_location: "footer",
+                link_url: portfolioData.socialLinks.github,
+              })
+            }
             className="text-[var(--muted)] transition hover:text-[var(--accent)]"
           >
             <CodeXml size={20} />
           </a>
 
           <a
-            href="YOUR_LINKEDIN_URL"
+            href={portfolioData.socialLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
+            onClick={() =>
+              trackEvent("linkedin_click", {
+                event_category: "engagement",
+                event_label: "LinkedIn profile",
+                link_location: "footer",
+                link_url: portfolioData.socialLinks.linkedin,
+              })
+            }
             className="text-[var(--muted)] transition hover:text-[var(--accent)]"
           >
             <BriefcaseBusiness size={20} />
           </a>
 
           <a
-            href="mailto:abhaytripathijuly15@gmail.com"
+            href={portfolioData.socialLinks.email}
             aria-label="Email"
+            onClick={() =>
+              trackEvent("email_click", {
+                event_category: "engagement",
+                event_label: "Email",
+                link_location: "footer",
+                link_url: portfolioData.socialLinks.email,
+              })
+            }
             className="text-[var(--muted)] transition hover:text-[var(--accent)]"
           >
             <Mail size={20} />
